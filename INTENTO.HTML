@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+:root {
+  --body-color: #fff;
+  --title-color: #333;
+  --text-color: #555;
+  --font-semi-bold: 1.2rem;
+  --small-font-size: .9rem;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.gall_container {
+  display: grid;
+  place-items: center;
+  padding-block: 2rem;
+  position: relative;
+}
+
+.gall_container h3 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+  display: block;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--body-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0,0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: .7rem;
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--font-semi-bold);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Carrusel */
+.carousel {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden; /* Oculta lo que excede el contenedor */
+  box-sizing: border-box;
+}
+
+/* La pista contenedora de las slides en fila */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* Cada slide en línea */
+.carousel-slide {
+  flex: 0 0 auto;
+  box-sizing: border-box;
+}
+
+.carousel-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 50%;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-button.prev {
+  left: 10px; 
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+
+.carousel-button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Animaciones al pasar el ratón */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@media screen and (min-width: 1120px){
+  .gall_container {
+    height: 100vh;
+  }
+  .card__img {
+    width: 348px;
+  }
+  .card__data {
+    width: 316px;
+    padding-inline:2.5rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<section href="#G_HT">
+  <div class="gall_container">
+    <h3 class="text center section-subheading">Galería Huesecillos del Oído & Membrana Timpánica</h3>
+    <div class="carousel">
+      <div class="carousel-track">
+        
+        <!-- Slide 1 -->
+        <div class="carousel-slide">
+          <article class="card__article">
+            <img src="F1_CC.webp" alt="image" class="card__img">
+            <div class="card__data">
+              <h2 class="card__title">Imágenes de RM de alta resolución del oído interno</h2>
+              <a href="#" class="card__button">
+                Aphiwatthanasumet, K., Jethwa, K., Glover, P. et al. (2024).
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <article class="card__article">
+            <img src="F2_CC.webp" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">
+                a) Diámetro largo (DL), corto (DC) y ASC.<br>
+                b) Imágenes MIP del oído interno.<br>
+                c) Medición de las dimensiones cocleares.
+              </span>
+              <h2 class="card__title">Vista posterior hueso temporal izquierdo</h2>
+              <a href="#" class="card__button">
+                Aphiwatthanasumet et al. (2024)
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <article class="card__article">
+            <img src="F3_CC.webp" alt="image" class="card__img">
+            <div class="card__data">
+              <span class="card__description">
+                Detalles anatómicos del oído medio.
+              </span>
+              <h2 class="card__title">Sección detallada del oído medio</h2>
+              <a href="#" class="card__button">
+                Referencia adicional.
+              </a>
+            </div>
+          </article>
+        </div>
+
+      </div>
+      <button class="carousel-button prev">❮</button>
+      <button class="carousel-button next">❯</button>
+    </div>
+  </div>
+</section>
+
+<script>
+window.addEventListener('load', () => {
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  const carousel = document.querySelector('.carousel');
+
+  let currentIndex = 0;
+
+  // Obtenemos medidas después de la carga
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  const carouselWidth = carousel.getBoundingClientRect().width;
+
+  // Calculamos el offset para centrar la diapositiva seleccionada
+  // Si currentIndex = 0, la primera diapositiva estará centrada con este offset.
+  const offset = (carouselWidth - slideWidth) / 2;
+
+  function updateCarousel() {
+    // Movemos el track de forma que la diapositiva actual quede centrada
+    const translateX = offset - (slideWidth * currentIndex);
+    track.style.transform = `translateX(${translateX}px)`;
+  }
+
+  prevButton.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    if (currentIndex < slides.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  // Inicializar la posición (centrar la primera slide)
+  updateCarousel();
+});
+</script>
+
+</body>
+</html>
